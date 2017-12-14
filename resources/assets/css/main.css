@@ -1,0 +1,108 @@
+/**
+ * This injects Tailwind's base styles, which is a combination of
+ * Normalize.css and some additional base styles.
+ *
+ * You can see the styles here:
+ * https://github.com/tailwindcss/tailwindcss/blob/master/css/preflight.css
+ */
+
+@tailwind preflight;
+
+/**
+ * Here you would import any custom component classes; stuff that you'd
+ * want loaded *before* the utilities so that the utilities can still
+ * override them.
+ *
+ * @import "my-components/foo";
+ * @import "my-components/bar";
+ */
+
+.a-link {
+    @apply .text-brand-dark .no-underline;
+}
+
+.table-item {
+    @apply .p-2 .border-t .text-sm .text-grey-darker .whitespace-no-wrap;
+}
+
+.active {
+    @apply .bg-grey-light .shadow-md .text-brand .border-l-4 .border-brand-light .p-4;
+}
+
+.tab {
+    @apply .flex-1 .text-center .text-grey .font-bold;
+}
+
+.tab:hover {
+    @apply .text-grey-dark;
+}
+
+.tab-active {
+    @apply .bg-grey-lighter;
+}
+
+.form-control {
+    @apply .shadow .appearance-none .border .rounded .w-full .py-2 .px-3 .text-grey-darker;
+}
+
+
+/**
+ * This injects all of Tailwind's utility classes, generated based on your
+ * config file.
+ */
+
+@tailwind utilities;
+
+/**
+ * Here you would add any custom utilities you need that don't come out of the box with Tailwind.
+ *
+ * .bg-hero-image {
+ *     background-image: url('/some/image/file.png');
+ * }
+ */
+
+[v-cloak] {
+    display: none;
+}
+
+
+/**
+ * Transitions
+ */
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s;
+}
+
+.component-fade-enter-active,
+.component-fade-leave-active {
+    transition: opacity .3s ease;
+}
+
+.component-fade-enter,
+.component-fade-leave-to
+/* .component-fade-leave-active below version 2.1.8 */
+
+{
+    opacity: 0;
+}
+
+.sidebar {
+    transition: all .3s;
+}
+
+@responsive {
+    .sidebar-mobile {
+        display: hidden;
+        transform: translateX(-100px);
+    }
+    .sidebar-desktop {
+        display: inline;
+        transform: translateX(0px);
+    }
+    .sidebar-active {
+        display: inline;
+        transform: translateX(0px);
+    }
+}
