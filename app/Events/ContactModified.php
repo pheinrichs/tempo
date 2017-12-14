@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Contact;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -14,23 +15,15 @@ class ContactModified
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $contact;
+    
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Contact $contact)
     {
-        //
-    }
-
-    /**
-     * Get the channels the event should broadcast on.
-     *
-     * @return \Illuminate\Broadcasting\Channel|array
-     */
-    public function broadcastOn()
-    {
-        return new PrivateChannel('channel-name');
+        $this->contact = $contact;
     }
 }

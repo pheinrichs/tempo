@@ -54,8 +54,8 @@ class ContactController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'work_phone' => 'nullable|max:50',
-            'mobile_phone' => 'nullable|numeric',
-            'home_phone' => 'nullable|numeric',
+            'mobile_phone' => 'nullable|max:50',
+            'home_phone' => 'nullable|max:50',
             'primary' => 'boolean',
             'email' => 'email|max:255|nullable'
         ]);

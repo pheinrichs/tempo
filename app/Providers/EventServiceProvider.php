@@ -15,10 +15,10 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         'App\Events\ContactModified' => [
             'App\Listeners\UpdatePrimaryContact',
-            'App\Listeners\LogEvent'
+            // 'App\Listeners\LogEvent'
         ],
         'App\Events\AccountModified' => [
-            'App\Listeners\LogEvent'
+            // 'App\Listeners\LogEvent'
         ]
     ];
 
